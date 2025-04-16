@@ -1,18 +1,49 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
-    <title>第 4 課：JOIN 多表查詢</title>
+    <title>JOIN 多表查詢</title>
     <style>
-        body { font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; margin: 2rem; line-height: 1.7; }
-        h1, h2 { color: #2c3e50; }
-        pre, code { background: #f4f4f4; padding: 0.75rem; display: block; border-radius: 6px; overflow-x: auto; }
-        table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
-        th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
-        th { background-color: #f0f0f0; }
+        body {
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            margin: 2rem;
+            line-height: 1.7;
+        }
+
+        h1,
+        h2 {
+            color: #2c3e50;
+        }
+
+        pre,
+        code {
+            background: #f4f4f4;
+            padding: 0.75rem;
+            display: block;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
     </style>
 </head>
+
 <body>
     <h1>第 4 課：JOIN 多表查詢</h1>
 
@@ -40,12 +71,37 @@ JOIN products ON orders.product_id = products.id;</code></pre>
     <h2>模擬結果</h2>
     <table>
         <tr>
-            <th>order_id</th><th>customer_name</th><th>product_name</th>
-            <th>quantity</th><th>price</th><th>total_price</th>
+            <th>order_id</th>
+            <th>customer_name</th>
+            <th>product_name</th>
+            <th>quantity</th>
+            <th>price</th>
+            <th>total_price</th>
         </tr>
-        <tr><td>1</td><td>小明</td><td>泡麵</td><td>3</td><td>35.00</td><td>105.00</td></tr>
-        <tr><td>2</td><td>小美</td><td>可樂</td><td>1</td><td>25.00</td><td>25.00</td></tr>
-        <tr><td>3</td><td>小明</td><td>可樂</td><td>2</td><td>25.00</td><td>50.00</td></tr>
+        <tr>
+            <td>1</td>
+            <td>小明</td>
+            <td>泡麵</td>
+            <td>3</td>
+            <td>35.00</td>
+            <td>105.00</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>小美</td>
+            <td>可樂</td>
+            <td>1</td>
+            <td>25.00</td>
+            <td>25.00</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小明</td>
+            <td>可樂</td>
+            <td>2</td>
+            <td>25.00</td>
+            <td>50.00</td>
+        </tr>
     </table>
 
     <h2>課堂練習</h2>
@@ -59,4 +115,5 @@ JOIN products ON orders.product_id = products.id;</code></pre>
 
     <p>練習後可嘗試加上 ORDER BY、GROUP BY 等語法做延伸應用。</p>
 </body>
+
 </html>

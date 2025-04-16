@@ -86,5 +86,25 @@ INSERT INTO orders (customer_id, product_id, quantity) VALUES
         <tr><td>CASCADE</td><td>✅ 可刪</td><td>同時自動刪除對應的訂單</td></tr>
     </table>
 
+
+    <h2>補充：常見欄位型別與用途</h2>
+    <table>
+        <tr><th>型別</th><th>說明</th><th>建議用途</th></tr>
+        <tr><td>INT</td><td>整數，支援自動遞增</td><td>主鍵、數量、編號</td></tr>
+        <tr><td>VARCHAR(n)</td><td>可變長字串，n 為最大長度</td><td>名稱、Email、地址</td></tr>
+        <tr><td>DECIMAL(x, y)</td><td>精確小數，x 位總長，y 位小數</td><td>金額、單價、匯率</td></tr>
+        <tr><td>DATE / DATETIME</td><td>日期或日期+時間</td><td>下單日期、登入時間</td></tr>
+        <tr><td>BOOLEAN / TINYINT(1)</td><td>布林值（0/1）</td><td>是否啟用、已付款</td></tr>
+        <tr><td>TEXT</td><td>長文字描述</td><td>商品介紹、備註</td></tr>
+    </table>
+
+    <h3>什麼是 DECIMAL？</h3>
+    <p><strong>DECIMAL(x, y)</strong> 表示「精確小數」，常用來存儲金額與單價。</p>
+    <ul>
+        <li><code>DECIMAL(10, 2)</code>：總共 10 位數，含 2 位小數，最多可存 99999999.99</li>
+        <li>適合計算：<strong>單價 × 數量</strong>、<strong>匯率 × 金額</strong></li>
+        <li>不同於 FLOAT / DOUBLE，<strong>不會有誤差</strong>，財務計算必用！</li>
+    </ul>
+
 </body>
 </html>

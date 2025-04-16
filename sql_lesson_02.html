@@ -1,18 +1,49 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
-    <title>第 2 課：ORDER BY + LIMIT 排序與分頁</title>
+    <title>ORDER BY + LIMIT 排序與分頁</title>
     <style>
-        body { font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; margin: 2rem; line-height: 1.7; }
-        h1, h2 { color: #2c3e50; }
-        pre, code { background: #f4f4f4; padding: 0.75rem; display: block; border-radius: 6px; overflow-x: auto; }
-        table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
-        th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
-        th { background-color: #f0f0f0; }
+        body {
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            margin: 2rem;
+            line-height: 1.7;
+        }
+
+        h1,
+        h2 {
+            color: #2c3e50;
+        }
+
+        pre,
+        code {
+            background: #f4f4f4;
+            padding: 0.75rem;
+            display: block;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
     </style>
 </head>
+
 <body>
     <h1>第 2 課：ORDER BY + LIMIT 排序與分頁</h1>
 
@@ -39,9 +70,21 @@ LIMIT 2 OFFSET 2;</code></pre>
 
     <h2>模擬結果</h2>
     <table>
-        <tr><th>id</th><th>name</th><th>price</th></tr>
-        <tr><td>2</td><td>泡麵</td><td>35.00</td></tr>
-        <tr><td>1</td><td>可樂</td><td>25.00</td></tr>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>price</th>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>泡麵</td>
+            <td>35.00</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>可樂</td>
+            <td>25.00</td>
+        </tr>
     </table>
 
     <h2>課堂練習</h2>
@@ -55,4 +98,5 @@ LIMIT 2 OFFSET 2;</code></pre>
 
     <p>完成後，請將查詢語法貼上並驗證結果。</p>
 </body>
+
 </html>

@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>MySQL 安裝與登入教學</title>
+    <style>
+        body { font-family: "Microsoft JhengHei", sans-serif; margin: 2rem; line-height: 1.8; }
+        h1, h2 { color: #2c3e50; }
+        pre, code { background: #f6f6f6; padding: 0.75rem; border-radius: 5px; display: block; white-space: pre-wrap; }
+        ol { margin-left: 1.5rem; }
+    </style>
+</head>
+<body>
+    <h1>MySQL Server 安裝與登入成功教學（Windows）</h1>
+
+    <h2>✅ 一、下載與安裝 MySQL Server</h2>
+    <ol>
+        <li>前往官方下載頁：<a href="https://dev.mysql.com/downloads/installer/" target="_blank">https://dev.mysql.com/downloads/installer/</a></li>
+        <li>下載「MySQL Installer for Windows」完整版本（含 Server、Workbench）</li>
+        <li>執行安裝程式，選擇「Developer Default」</li>
+        <li>依照安裝步驟設定 Root 密碼，並記住它</li>
+    </ol>
+
+    <h2>✅ 二、啟動 MySQL Server</h2>
+    <ol>
+        <li>安裝完成後，MySQL Server 通常會自動註冊為服務</li>
+        <li>你可以透過「服務（services.msc）」檢查是否正在執行</li>
+        <li>或使用命令提示字元確認：<br>
+            <pre><code>net start mysql</code></pre>
+        </li>
+    </ol>
+
+    <h2>✅ 三、使用命令列登入 MySQL</h2>
+    <pre><code>mysql -u root -p</code></pre>
+    <p>系統會提示輸入密碼，輸入你安裝時設定的 Root 密碼。</p>
+
+    <h2>✅ 四、登入成功畫面</h2>
+    <pre><code>Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.xx MySQL Community Server - GPL
+
+mysql&gt;</code></pre>
+
+    <h2>📌 常見補充說明</h2>
+    <ul>
+        <li>若打不開 mysql 命令，請將 MySQL bin 路徑加入「環境變數」中的 PATH</li>
+        <li>也可改用「MySQL Workbench」圖形化工具登入操作</li>
+        <li>登入後可使用：<code>SHOW DATABASES;</code> 來檢查資料庫</li>
+    </ul>
+</body>
+</html>
