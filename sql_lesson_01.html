@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>第 1 課：SELECT + WHERE 查詢語法</title>
+    <style>
+        body { font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; margin: 2rem; line-height: 1.7; }
+        h1, h2 { color: #2c3e50; }
+        pre, code { background: #f4f4f4; padding: 0.75rem; display: block; border-radius: 6px; overflow-x: auto; }
+        table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+        th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+        th { background-color: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>第 1 課：SELECT + WHERE 查詢語法</h1>
+
+    <h2>語法說明</h2>
+    <pre><code>SELECT 欄位名稱 FROM 資料表名稱 WHERE 條件式;</code></pre>
+    <p>可搭配各種比較運算符號，如 =、&gt;、&lt;、!= 等。</p>
+
+    <h2>查詢範例</h2>
+    <h3>查詢所有商品：</h3>
+    <pre><code>SELECT * FROM products;</code></pre>
+
+    <h3>查詢價格大於 30 的商品：</h3>
+    <pre><code>SELECT * FROM products WHERE price > 30;</code></pre>
+
+    <h3>查詢名稱為「泡麵」的商品：</h3>
+    <pre><code>SELECT * FROM products WHERE name = '泡麵';</code></pre>
+
+    <h2>模擬結果</h2>
+    <table>
+        <tr><th>id</th><th>name</th><th>price</th></tr>
+        <tr><td>2</td><td>泡麵</td><td>35.00</td></tr>
+        <tr><td>3</td><td>麵包</td><td>20.00</td></tr>
+    </table>
+
+    <h2>課堂練習</h2>
+    <ol>
+        <li>查詢價格等於 25 的商品。</li>
+        <li>查詢價格小於或等於 30 的所有商品。</li>
+        <li>查詢商品名稱為「可樂」的商品資料。</li>
+        <li>試著用 <code>!=</code> 查詢不等於「麵包」的商品。</li>
+        <li>想一想：<code>&lt;=</code> 和 <code>&lt;</code> 差在哪裡？</li>
+    </ol>
+
+    <p>完成後，請將查詢語法貼上並測試結果是否正確。</p>
+</body>
+</html>

@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>第 3 課：GROUP BY + 聚合函數</title>
+    <style>
+        body { font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; margin: 2rem; line-height: 1.7; }
+        h1, h2 { color: #2c3e50; }
+        pre, code { background: #f4f4f4; padding: 0.75rem; display: block; border-radius: 6px; overflow-x: auto; }
+        table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+        th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+        th { background-color: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>第 3 課：GROUP BY + 聚合函數</h1>
+
+    <h2>語法說明</h2>
+    <p><code>GROUP BY</code> 用於將資料分組，並搭配聚合函數進行統計。</p>
+    <p>常見聚合函數：</p>
+    <ul>
+        <li><code>COUNT()</code>：筆數</li>
+        <li><code>SUM()</code>：加總</li>
+        <li><code>AVG()</code>：平均</li>
+        <li><code>MAX()</code>：最大值</li>
+        <li><code>MIN()</code>：最小值</li>
+    </ul>
+
+    <h2>查詢範例</h2>
+
+    <h3>每位顧客的訂單筆數：</h3>
+    <pre><code>SELECT customer_id, COUNT(*) AS order_count
+FROM orders
+GROUP BY customer_id;</code></pre>
+
+    <h3>每位顧客的總購買數量：</h3>
+    <pre><code>SELECT customer_id, SUM(quantity) AS total_quantity
+FROM orders
+GROUP BY customer_id;</code></pre>
+
+    <h3>每位顧客平均每筆訂單購買數量：</h3>
+    <pre><code>SELECT customer_id, AVG(quantity) AS avg_quantity
+FROM orders
+GROUP BY customer_id;</code></pre>
+
+    <h2>模擬結果</h2>
+    <table>
+        <tr><th>customer_id</th><th>顧客姓名</th><th>order_count</th><th>total_quantity</th><th>avg_quantity</th></tr>
+        <tr><td>1</td><td>小明</td><td>2</td><td>5</td><td>2.5</td></tr>
+        <tr><td>2</td><td>小美</td><td>1</td><td>1</td><td>1.0</td></tr>
+    </table>
+
+    <h2>課堂練習</h2>
+    <ol>
+        <li>查詢每位顧客購買商品的平均數量。</li>
+        <li>查詢每個商品的總銷售數量（依 product_id 分組）。</li>
+        <li>查詢顧客出現次數最多的人（誰下最多訂單）。</li>
+        <li>使用 <code>COUNT(DISTINCT ...)</code> 查詢下過單的顧客人數。</li>
+        <li>思考：<code>WHERE</code> 和 <code>GROUP BY</code> 的執行順序為何？</li>
+    </ol>
+
+    <p>請嘗試撰寫出正確的 SQL 查詢，並驗證結果是否正確。</p>
+</body>
+</html>

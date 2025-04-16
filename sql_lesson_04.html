@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>第 4 課：JOIN 多表查詢</title>
+    <style>
+        body { font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; margin: 2rem; line-height: 1.7; }
+        h1, h2 { color: #2c3e50; }
+        pre, code { background: #f4f4f4; padding: 0.75rem; display: block; border-radius: 6px; overflow-x: auto; }
+        table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+        th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+        th { background-color: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>第 4 課：JOIN 多表查詢</h1>
+
+    <h2>語法說明</h2>
+    <p><code>JOIN</code> 可將兩張或多張資料表合併查詢，常見類型：</p>
+    <ul>
+        <li><code>INNER JOIN</code>：兩邊都有對應資料才會顯示（最常用）</li>
+        <li><code>LEFT JOIN</code>：左邊資料保留，右邊沒有會顯示 NULL</li>
+    </ul>
+
+    <h2>查詢範例</h2>
+
+    <h3>查詢訂單明細：顧客名稱 + 商品名稱 + 數量 + 價格 + 總價：</h3>
+    <pre><code>SELECT 
+  orders.id AS order_id,
+  customers.name AS customer_name,
+  products.name AS product_name,
+  orders.quantity,
+  products.price,
+  orders.quantity * products.price AS total_price
+FROM orders
+JOIN customers ON orders.customer_id = customers.id
+JOIN products ON orders.product_id = products.id;</code></pre>
+
+    <h2>模擬結果</h2>
+    <table>
+        <tr>
+            <th>order_id</th><th>customer_name</th><th>product_name</th>
+            <th>quantity</th><th>price</th><th>total_price</th>
+        </tr>
+        <tr><td>1</td><td>小明</td><td>泡麵</td><td>3</td><td>35.00</td><td>105.00</td></tr>
+        <tr><td>2</td><td>小美</td><td>可樂</td><td>1</td><td>25.00</td><td>25.00</td></tr>
+        <tr><td>3</td><td>小明</td><td>可樂</td><td>2</td><td>25.00</td><td>50.00</td></tr>
+    </table>
+
+    <h2>課堂練習</h2>
+    <ol>
+        <li>查詢所有訂單的顧客姓名與商品名稱。</li>
+        <li>查詢每筆訂單的總金額（單價 × 數量）。</li>
+        <li>查詢訂單 + 顧客資料，不包含有缺漏的紀錄（使用 INNER JOIN）。</li>
+        <li>改用 <code>LEFT JOIN</code> 試試看是否有 NULL 值出現？</li>
+        <li>思考：JOIN 條件寫錯會發生什麼？</li>
+    </ol>
+
+    <p>練習後可嘗試加上 ORDER BY、GROUP BY 等語法做延伸應用。</p>
+</body>
+</html>

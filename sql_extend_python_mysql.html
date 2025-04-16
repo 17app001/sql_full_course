@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>延伸課程：Python 操作 MySQL 與 SQL 注入教學</title>
+    <style>
+        body { font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; margin: 2rem; line-height: 1.7; }
+        h1, h2 { color: #2c3e50; }
+        pre, code { background: #f4f4f4; padding: 0.75rem; display: block; border-radius: 6px; overflow-x: auto; }
+        ol, ul { margin-left: 1.5rem; }
+    </style>
+</head>
+<body>
+    <h1>延伸課程：Python 操作 MySQL 與 SQL 注入教學</h1>
+
+    <h2>一、安裝套件</h2>
+    <pre><code>pip install mysqlclient</code></pre>
+
+    <h2>二、建立資料庫連線（安全寫法）</h2>
+    <pre><code>import MySQLdb
+
+conn = MySQLdb.connect(
+    host="localhost",
+    user="your_user",
+    passwd="your_password",
+    db="your_db",
+    charset="utf8"
+)
+cursor = conn.cursor()</code></pre>
+
+    <h2>三、SQL 注入示範（錯誤寫法）</h2>
+    <pre><code>name = input("請輸入商品名稱：")
+query = f"SELECT * FROM products WHERE name = '{name}';"
+cursor.execute(query)</code></pre>
+    <p>⚠️ 若輸入 <code>' OR '1'='1</code> 會查出全部商品（注入成功）</p>
+
+    <h2>四、防範注入（正確寫法）</h2>
+    <pre><code>cursor.execute("SELECT * FROM products WHERE name = %s", (name,))</code></pre>
+
+    <h2>五、連續輸入商品資料直到 exit</h2>
+    <pre><code>while True:
+    name = input("請輸入商品名稱（輸入 exit 結束）：")
+    if name.lower() == "exit":
+        break
+    price = float(input("請輸入價格："))
+    cursor.execute(
+        "INSERT INTO products (name, price) VALUES (%s, %s)",
+        (name, price)
+    )
+    conn.commit()</code></pre>
+
+    <h2>六、擴展應用：小型 CLI 商店系統</h2>
+    <p>可支援以下功能：</p>
+    <ul>
+        <li>新增商品</li>
+        <li>查詢商品（模糊搜尋、價格範圍）</li>
+        <li>新增顧客</li>
+        <li>新增訂單（透過商品與顧客）</li>
+        <li>列出所有訂單明細</li>
+    </ul>
+
+    <h3>學生練習建議：</h3>
+    <ol>
+        <li>建立商品輸入與查詢功能</li>
+        <li>新增顧客登入流程（以 name + email 登入）</li>
+        <li>完成下單流程：輸入顧客 + 商品 + 數量，自動寫入訂單表</li>
+        <li>使用 JOIN 查出顧客名稱、商品名稱與總金額</li>
+    </ol>
+
+    <p>這是從資料查詢邏輯，擴展到實際 Python CLI 應用的完整範例，適合進行專題發展。</p>
+</body>
+</html>
